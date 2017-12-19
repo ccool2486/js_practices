@@ -1,0 +1,14 @@
+# npm debug log
+npm-debug.log*
+
+# depedencies
+node_modules
+
+# osx folder properties
+.DS_Store
+
+# Temps
+*.Temp
+*~
+
+package-lock.json
