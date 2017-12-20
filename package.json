@@ -11,7 +11,8 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.0"
+    "gulp-babel": "^7.0.0",
+    "standard": "^10.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
