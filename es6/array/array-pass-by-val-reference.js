@@ -7,14 +7,14 @@
 
 // 通过引用传递
 // 在默认情况下，array 作为参数传递给函数时，是作为引用传递的
-var a = [3, 'my new post', { 345}];
+var a = [3, 'my new post', 'hello'];
 
 function renderData(a) {
     a.push(4);
 }
 
 renderData(a);
-alert(a);	// push 方法返回一个新 array [3, 'my new post', {345}, 4]
+console.log(a); // push 方法返回一个新 array [3, 'my new post', 'hello', 4]
 
 // 通过值传递
 // 通过调用原生的 array 方法 - slice()，可以达到通过值传递的效果
@@ -30,7 +30,7 @@ alert(a);	// push 方法返回一个新 array [3, 'my new post', {345}, 4]
     // object
     var obj = { "abc": 456 };
     var arr = [obj].slice(); // [{"abc": 456}]，复制自 [obj]，且 arr 内的 obj 是引用 {"abc": 456}
-    obj.abc = 4567; // 改变原始对象
+    obj.abc = 4567; // 改变原始对象 
     console.log(arr, obj); // [{"abc": 4567}] {"abc": 4567} // 会发现 arr 内的 obj 也被改变
 
     // array
@@ -60,16 +60,18 @@ alert(a);	// push 方法返回一个新 array [3, 'my new post', {345}, 4]
 
 }()
 
-var a = [3, 'my new post', { 345}];
+
+// 整個很不懂下面在幹嘛??
+var a = [3, 'my new post', 'hello'];
 
 function renderData(a) {
     a.push(4);
 }
 
 renderData(a.slice());
-alert(a);	// [3, 'my new post', {345}]
+console.log(a);	// [3, 'my new post', 'hello']
 
 // 如果你确实想通过值传递来复制数组中的对象，那么需要使用 JSON.parse(JSON.stringify(array))
 // 注意：在复制 functions/dates 对象的时候会有一些警告
 // 更多内容请查看：https://github.com/vasanthk/js-bits/blob/master/js/object-clone.js
-var tempArray = JSON.parse(JSON.stringify(mainArray));
+//var tempArray = JSON.parse(JSON.stringify(mainArray));
