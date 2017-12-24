@@ -1,3 +1,4 @@
+// hello from cloud9
 // 有一個Car類別
 class Car {
 }
@@ -9,7 +10,7 @@ class InsurancePolicy {
   }
 
   getInsuranceProvider () {
-    console.log(this.insuranceProvider);
+    console.log(this.insuranceProvider)
     
   }
 }
