@@ -3,7 +3,16 @@ class Car {
 }
 
 // 有一個保險類別： InsurancePolicy
-class InsurancePolicy {}
+class InsurancePolicy {
+  constructor (provider) {
+    this.insuranceProvider = provider
+  }
+
+  getInsuranceProvider () {
+    console.log(this.insuranceProvider);
+    
+  }
+}
 
 // 把一台車變成可以有保險的狀態
 function makeInsurable (o) {
@@ -16,9 +25,11 @@ function makeInsurable (o) {
 const car1 = new Car()
 makeInsurable(car1)
 // 把InsurancePolicy的實例放到this.insurancePolicy
-car1.addInsurancePolicy(new InsurancePolicy())
+car1.addInsurancePolicy(new InsurancePolicy('Cathy'))
+car1.insurancePolicy.getInsuranceProvider() // Cathey
 
 // Car2做法，會讓所有的Car實例，都擁有makeInsurable的方法
 makeInsurable(Car.prototype)
 const car2 = new Car()
-car2.addInsurancePolicy(new InsurancePolicy())
+car2.addInsurancePolicy(new InsurancePolicy('Mega'))
+car2.insurancePolicy.getInsuranceProvider()
