@@ -32,3 +32,6 @@ Push到github
 ```sh 
 git push origin master
 ```
+
+# 連結
+[通过代码解释 JavaScript 的概念](https://github.com/ecmadao/js-bits-cn)
