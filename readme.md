@@ -22,6 +22,11 @@ npm install
 git status 
 ```
 
+從github pull 資料回來
+```sh 
+git pull
+```
+
 提交所有變更
 ```sh 
 git add -A 
