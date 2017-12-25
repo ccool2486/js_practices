@@ -9,7 +9,7 @@ class InsurancePolicy {
     this.insuranceProvider = provider
   }
 
-  getInsuranceProvider () {
+  getInsuranceProvider () { // 取得保險商名稱
     console.log(this.insuranceProvider)
     
   }
