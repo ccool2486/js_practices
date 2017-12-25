@@ -1,9 +1,34 @@
-* 安裝Node
+# 環境
 
-* 安裝VScode
+ * Node.js
+ 
+ 
+# 設定
 
-* git clone 下來
+ git clone
+```sh 
+git clone https://github.com/ccool2486/js_practices.git
+```
 
-* npm init
+npm install
+```sh 
+npm install
+```
 
-* npm install
+# 常用指令
+
+查看目前git狀態
+```sh 
+git status 
+```
+
+提交所有變更
+```sh 
+git add -A 
+git commit -m "[commit notes]"
+```
+
+Push到github
+```sh 
+git push origin master
+```
