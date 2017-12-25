@@ -166,7 +166,7 @@ toArray(1, 2, 3);
 !function() {
   function apply(fun, thisArg, args) {
     var length = args.length;
-    switch() {
+    switch (length) {
       case 0: return fun.call(thisArg);
       case 1: return fun.call(thisArg, args[0]);
       case 2: return fun.call(thisArg, args[0], args[1]);

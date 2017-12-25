@@ -1,6 +1,10 @@
 # npm debug log
 npm-debug.log*
 
+# babeld javascripts
+dist/
+public/dist
+
 # depedencies
 node_modules
 

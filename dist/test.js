@@ -1,36 +1,39 @@
-'use strict';
+"use strict";
 
-var sentences = [{ subject: 'Javascript', verb: 'is', object: 'great' }, { subject: 'Elephants', verb: 'are', object: 'large' }];
+/** es6新增的變數指派方式 */
 
+var sentences = [{ subject: "Javascript", verb: "is", object: "great" }, { subject: "Elephants", verb: "are", object: "large" }];
+
+/** log出所有的引數 */
 function say(_ref) {
-    var subject = _ref.subject,
-        verb = _ref.verb,
-        object = _ref.object;
+  var subject = _ref.subject,
+      verb = _ref.verb,
+      object = _ref.object;
 
-    console.log(subject + ' ' + verb + ' ' + object);
-};
+  console.log(subject + " " + verb + " " + object);
+}
 
 var _iteratorNormalCompletion = true;
 var _didIteratorError = false;
 var _iteratorError = undefined;
 
 try {
-    for (var _iterator = sentences[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var s = _step.value;
+  for (var _iterator = sentences[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    var s = _step.value;
 
-        say(s);
-    }
+    say(s);
+  }
 } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
+  _didIteratorError = true;
+  _iteratorError = err;
 } finally {
-    try {
-        if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-        }
-    } finally {
-        if (_didIteratorError) {
-            throw _iteratorError;
-        }
+  try {
+    if (!_iteratorNormalCompletion && _iterator.return) {
+      _iterator.return();
     }
+  } finally {
+    if (_didIteratorError) {
+      throw _iteratorError;
+    }
+  }
 }
