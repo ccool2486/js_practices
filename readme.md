@@ -38,5 +38,12 @@ Push到github
 git push origin master
 ```
 
+複寫全部本地檔案紀錄
+```sh 
+git fetch --all
+git reset --hard origin/master
+git pull origin master
+```
+
 # 連結
 [通过代码解释 JavaScript 的概念](https://github.com/ecmadao/js-bits-cn)
