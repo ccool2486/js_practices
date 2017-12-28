@@ -3,7 +3,7 @@
  *
  * 1. splice() 「拼接」方法返回由 被删除的元素 组成的 array；slice() 方法在新 array 中返回被选择的元素
  *
- * 2. splice() 「切片」方法更改原有的 array，slice() 则不动原 array
+ * 2. slice() 「切片」方法更改原有的 array，slice() 则不动原 array
  *
  * 3. splice() 可接受多个数字作为参数：
  * 第一个参数：index，必需，代表起始位置
