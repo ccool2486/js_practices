@@ -1,6 +1,7 @@
 // JSON.parse() 可以把一個字串形態的JSON轉換成陣列供程式使用
 
 // 這裡是一個對象，不是一個JSON
+// 如果從檔案系統或是網路上抓，需要一些額外設定，例如axios, jquery等等的...
 var colorsJson = {
   "colors": [
     {
