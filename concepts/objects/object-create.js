@@ -5,7 +5,7 @@
 var person = {
   firstName: 'Default',
   lastName: 'Default',
-  greet: function() {
+  greet: function () {
     return `Hi, ${this.firstName} ${this.lastName}`
   }
 }
@@ -22,7 +22,7 @@ for (var prop in john) {
 console.log(john.greet())// Hi, John Doe
 
 // 把person增加一個方法, 使用Object.create繼承他的john也會得到這個方法
-person.bye = function() {
+person.bye = function () {
   return ('Bye')
 }
 
@@ -34,14 +34,14 @@ console.log(john.bye()) // "Bye"
 // 我們可以寫一個母對象裡面的函式，讓他做這件事
 
 var car = {
-  init: function(brand, model) {
+  init: function (brand, model) {
     this.brand = brand
     this.model = model
     return this
   },
   brand: 'Default',
   model: 'Default',
-  whatcar: function() {
+  whatcar: function () {
     return `Hi, This is a ${this.brand} ${this.model}`
   }
 }
