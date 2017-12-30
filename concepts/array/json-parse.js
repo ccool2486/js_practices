@@ -57,7 +57,7 @@ var colorsJson = {
       }
     },
   ]
-} 
+}
 
 var newData = JSON.stringify(colorsJson) // 可以用stringify把對象轉成字串
 var colors = JSON.parse(newData) // 可以用JSON.parse把字串轉成「陣列」
