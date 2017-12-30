@@ -8,7 +8,7 @@ Array.prototype.newFunction = "cool";
 // 有一個陣列
 var arr = ["John", "Jane", "Jim"];
 
-// for in 會有那個新方法！ 
+// for in 會有那個新方法！ 壞壞的！
 for (var prop in arr) {
   console.log(`${prop}: ${arr[prop]}`); // 0: John​​​​​, ​​​​​1: Jane​​​​​, ​​​​​2: Jim, ​​​​​newFunction: cool​​​​​
 }
