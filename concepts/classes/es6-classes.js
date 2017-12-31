@@ -18,8 +18,8 @@ var john = new Person('John', 'Doe')
 john.greet() // Hi! John Doe
 
 // 讓Howard是Person類別的一個實例
-var howard = new Person('Howard', 'Huang')
-howard.greet() // Hi! Howard Huang
+var friend = new Person('Howard', 'Huang')
+friend.greet() // Hi! Howard Huang
 
 // 讓Dancer類別是一個繼承Person的類別
 class Dancer extends Person {

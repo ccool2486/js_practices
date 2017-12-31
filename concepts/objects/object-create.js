@@ -2,7 +2,7 @@
 // 即便是es6的class用法, 也不是實際上的class
 // 如果完全拋棄class的思維，我們可以用Object.create來實作跟class相同的結果
 
-var person = {
+var friend = {
   firstName: 'Default',
   lastName: 'Default',
   greet: function () {
@@ -10,7 +10,7 @@ var person = {
   }
 }
 
-var john = Object.create(person)
+var john = Object.create(friend)
 john.firstName = 'John'
 john.lastName = 'Doe'
 console.log(john) // { firstName: 'John', lastName: 'Doe' }
@@ -22,12 +22,12 @@ for (var prop in john) {
 console.log(john.greet())// Hi, John Doe
 
 // 把person增加一個方法, 使用Object.create繼承他的john也會得到這個方法
-person.bye = function () {
+friend.bye = function () {
   return ('Bye')
 }
 
 // 這樣的結果不就是跟class繼承有相同的結果嗎?
-console.log(person.bye()) // "Bye"
+console.log(friend.bye()) // "Bye"
 console.log(john.bye()) // "Bye"
 
 // 如果我們要像constructor一樣，傳入參數去建構對象呢?
