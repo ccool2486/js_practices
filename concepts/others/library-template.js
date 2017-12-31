@@ -4,7 +4,7 @@
 // 3. 使用alis概念，讓這個library好用一點
 
 // 例如以下的案例：
-// 這是一個Greeter的library，單純可以說hello。可以 var a = G$('Howard', 'Hunag') ，然後a會有很多可以用的功能
+// 這是一個Greeter的library，單純可以說hello。可以 var a = G$('Howard', 'Huang') ，然後a會有很多可以用的功能
 (function (global) {
   var Greeter = function (firstName, lastName) {
     return new Greeter.init(firstName, lastName) // 回傳初始化後的物件
@@ -29,7 +29,7 @@
   global.Greeter = global.G$ = Greeter // 這寫法會執行line 8進行回傳初始化後物件？
 })(global)
 
-var a = G$('Howard', 'Hunag') // works
+var a = G$('Howard', 'Huang') // works
 a.helloUser() // Hello Howard Huang
 var b = Greeter('Cathy', 'Lu')
 b.helloUser() // Hello Cathy Lu
