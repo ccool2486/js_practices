@@ -26,9 +26,10 @@
   // 這有點像是在做alias，但是有點看不懂
   Greeter.init.prototype = Greeter.prototype
   // 把Greeter變成一個全域參數的屬性，同時讓他可以用G$寫法使用
-  global.Greetr = global.G$ = Greeter // 這寫法會執行line 8進行回傳初始化後物件？
+  global.Greeter = global.G$ = Greeter // 這寫法會執行line 8進行回傳初始化後物件？
 })(global)
 
 var a = G$('Howard', 'Hunag') // works
 a.helloUser() // Hello Howard Huang
-var b = Greeter('Cathy', 'Lu') // Greeter is undefined 不懂為什麼這樣不行，line 26-29不是用來做alias嗎？
+var b = Greeter('Cathy', 'Lu')
+b.helloUser() // Hello Cathy Lu
