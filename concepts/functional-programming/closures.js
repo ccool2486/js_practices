@@ -54,3 +54,29 @@ function generateNums2 (limit) {
 
 var result2 = generateNums2(3) // ​​​​​[ 100, 101, 102 ]​​​​​ 
 console.log(result2[0], result2[1], result2[2]) // 100 101 102
+
+
+var a = [];
+for (var i = 0; i < 10; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[5](); 
+
+/* ES6正確的實作 */
+// http://es6.ruanyifeng.com/?search=import&x=0&y=0#docs/let
+// 數字產生器
+function generateNums3 (limit) {
+  var start = 100
+  var output = []
+  for (let i = 0; i < limit; i++) { // 用let讓這個i不會變成全域變數
+    output[i] = function () {
+      return start + i 
+    };
+  }
+  return output
+}
+
+var result3 = generateNums3(3) 
+console.log(result3[0](), result3[1](), result3[2]()) // 100 101 102
