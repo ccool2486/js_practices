@@ -24,12 +24,11 @@ myName('Sam') // ​​​​​My name is Blesson Sam​​​​​
 
 /* 不正確的實作： 最後數字不是我們要的 */
 // 數字產生器
-// ?? 不懂為什麼這樣子不行
 function generateNums1 (limit) {
   var start = 100
   var output = []
   for (var i = 0; i < limit; i++) {
-    output[i] = function () {
+    output[i] = function () { // 這裡的i會有scope問題，i會是for裡面的最終值
       return start + i 
     };
   }
@@ -45,7 +44,7 @@ function generateNums2 (limit) {
   var start = 100 // 從100開始產生數字
   var output = [] // 產生後的數字放這裡
   for (var i = 0; i < limit; i++) {
-    output[i] = (function (j) { // j就是傳入的i, IIFE？
+    output[i] = (function (j) { // j就是傳入的i, 用IIFE來控制scope問題
       return start + j
     })(i)
   }
