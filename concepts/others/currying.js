@@ -4,7 +4,47 @@
  *
  * 简而言之，柯里化是构造函数的一种方式，它可以将函数分离成各个小型函数，将参数依次分段传入
  * 这意味着你既可以传递一堆参数给函数，然后获取返回值；也可以依次传入参数，分别获取返回的函数，然后接收剩下的参数。
- *
+ * 
+ */
+
+// FFF: https://www.youtube.com/watch?v=iZLP4qOwY8I&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84&index=6
+// 本來就可以被Curry的函數
+var dragon1 =
+  name =>
+    size =>
+      element =>
+        name + ' is a ' +
+        size + ' dragon that breathes ' +
+        element + '!'
+
+console.log(dragon1('toothless')('tiny')('lightning')); //​​​​​ toothless is a tiny dragon that breathes lightning!​​​​​
+
+/* 使用lodash - 把一般的函數變成可以curried */
+// dragon2並沒有一直回傳函式...
+var dragon2 = (name, size, element) =>
+  name + ' is a ' +
+  size + ' dragon that breathes ' +
+  element + '!'
+
+var _ = require('lodash') // 載入loadash
+var dragon2 = _.curry(dragon2) // 把一個現有函示變成可以被Curry的函式
+var toothless = dragon2('toothless') // 用第一個參數製造第一個curry函式
+var tiny = toothless('tiny') // 用第二個參數製造第二個curry函式
+console.log(tiny('lightning')) //​​​​​ toothless is a tiny dragon that breathes lightning!​​​​​
+
+/* 另一種有趣的Curry方式 */
+var dragons = [
+  {name: 'fluffykins', element: 'lightning'},
+  {name: 'noomi', element: 'lightning'},
+  {name: 'karo', element: 'fire'},
+  {name: 'doomer', element: 'timewarp'}
+]
+
+var hasElement = _.curry((element, obj) => obj.element === element)
+var lightningDragons = dragons.filter(hasElement('lightning'));
+console.log(lightningDragons); // ​​​​​[ { name: 'fluffykins', element: 'lightning' },​​​​ { name: 'noomi', element: 'lightning' } ]​​​​​
+
+/**
  * 柯里化（Currying）vs 分段函数（Partial Application）
  * “Currying is the decomposition of a polyadic function into a chain of nested unary functions.
  * Thus decomposed, you can partially apply one or more arguments, although the curry operation itself does not apply any arguments to the function.”
