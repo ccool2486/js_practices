@@ -68,3 +68,13 @@ cleanRoom()
   .then(function (result) { // 得到冰淇淋後還可以繼續做事...
     console.log('finished ' + result) // ​​​​​finished Cleaned The Room remove Garbage won Icecream​​​​​
   })
+
+// 使用Promise，沒有串接，三個Promise都正確完成後，才輸出
+Promise.all([cleanRoom(), removeGarbage(), winIcecream()]).then(function(){
+  console.log('All finished!') // ​​​​​All finished!​​​​​
+})
+
+// 使用Promise，沒有串接，三個Promise任一完成後，便會輸出
+Promise.race([cleanRoom(), removeGarbage(), winIcecream()]).then(function(){
+  console.log('one of them finished!') // ​​​​​​​​​​one of them finished!​​​​​
+})
