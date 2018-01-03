@@ -45,7 +45,8 @@
  *
  *  map 方法做了什么：
  *  从左往右遍历数组，将各元素分别代入回调函数进行调用，并返回回调函数的返回值，最终组成一个新的数组
- *
+ *  [注意！] map不會修改原本的陣列，而是返回一個新的陣列
+ *  
  *  举个栗子：把 一组华氏温度 转换成 一组摄氏温度
  *
  *  语法：
@@ -59,6 +60,19 @@
  *  thisArg: 作为回调中的作用域（this）
  */
 
+// FFF範例 https://www.youtube.com/watch?v=bCqtb-Z5YGQ&index=2&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84
+// 例如要把所有動物的名字輸出
+var animals = [
+  {name : 'Fluffykins', species : 'rabbit'},
+  {name : 'Caro', species : 'dog'},
+  {name : 'Hamilton', species : 'fish'},
+  {name : 'Harold', species : 'cat'},
+  {name : 'Jimmy', species : 'fish'}
+]
+
+let animalNames = animals.map((x) => x.name) 
+console.log(animalNames) // [ 'Fluffykins', 'Caro', 'Hamilton', 'Harold', 'Jimmy' ]
+
 // 一组华氏温度 转换成 一组摄氏温度
 (function() {
   var farenheit = [0, 32, 45, 55, 67, 79, 94, 105];
@@ -68,6 +82,7 @@
 
   console.log(celcius); // [-18, 0, 7, 13, 19, 26, 34, 41]
 })();
+
 
 /** Array.filter()
  *
@@ -140,9 +155,9 @@
     { country: "Japan", launches: 3 }
   ];
 
-  var sum = rockets.reduce(function(prevVal, elem) {
-    return prevVal + elem.launches;
+  var totalLaunches = rockets.reduce(function(sum, elem) {
+    return sum + elem.launches
   }, 0);
 
-  console.log(sum);
+  console.log(totalLaunches);
 })();

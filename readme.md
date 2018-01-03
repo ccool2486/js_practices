@@ -57,6 +57,7 @@ git pull origin master
 
 ## 學習連結
 [通过代码解释 JavaScript 的概念](https://github.com/ecmadao/js-bits-cn)
+[funfunfunction - Functional programming in JavaScript](https://github.com/blessonmathewsam/funfunfunction)
 
 [JavaScript - The Right Way](http://jstherightway.org/)
 
