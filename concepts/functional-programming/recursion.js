@@ -10,7 +10,30 @@ let countDownFrom = (num) => {
 
 countDownFrom(10) // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
 
+// 連結： https://www.sitepoint.com/recursion-functional-javascript/
 // recursion跟loop有時候可以達到一樣的目標
+// 例如下面這個用for loop寫的函式
+// 範例： 6*5*4*3*2*1
+var factor = function(number) {
+  var result = 1;  
+  var count;
+  for (count = number; count > 1; count--) {
+    result *= count;
+  }
+  return result; 
+};
+console.log(factor(6)); // 720
+
+// 如果用recursion寫的話，就會是這樣子...
+var factorial = function(number) {
+  if (number <= 0) { // 防呆用的
+    return 1;
+  } else { // 下面是recursion
+    return (number * factorial(number - 1));
+  }
+};
+console.log(factorial(6)); // 720
+
 // 下面這個範例展示了recursion才能做到的事情，如果下面的事情要用loop做的話，就會要很多層
 // 範例： 把categories的資料轉換成結構化的JSON
 let categories = [
@@ -28,7 +51,7 @@ let categories = [
 
 let makeTree = (categories, parent) => {
   let node = {};
-  categories.filter(x => x.parent === parent) //從傳入的parent開始找 （Null）
+  categories.filter(x => x.parent === parent) //從傳入的parent開始找（Null）
             // 下面就是recursion，一層一層找下去
             .forEach(x => node[x.id] = makeTree(categories, x.id)) // recursion呼叫了自己，並且參數是上一次呼叫後，找到的物件的id
   return node;
