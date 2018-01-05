@@ -74,7 +74,7 @@ Promise.all([cleanRoom(), removeGarbage(), winIcecream()]).then(function(){
   console.log('All finished!') // ​​​​​All finished!​​​​​
 })
 
-// 使用Promise，沒有串接，三個Promise任一完成後，便會輸出
+// 使用Promise，沒有串接，三個Promise任一完成後，便會輸出。記得要放在陣列內。
 Promise.race([cleanRoom(), removeGarbage(), winIcecream()]).then(function(){
   console.log('one of them finished!') // ​​​​​​​​​​one of them finished!​​​​​
 })
