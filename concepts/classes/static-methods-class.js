@@ -1,3 +1,4 @@
+// https://stackoverflow.com/questions/1635116/javascript-class-method-vs-class-prototype-method
 // 為什麼有時候要把function放在class裡，有時候又不要呢？
 // 1. 有時候你需要一個針對Class本身的函式，最有可能的情況是，？？？
 
