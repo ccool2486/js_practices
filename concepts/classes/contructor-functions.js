@@ -1,5 +1,5 @@
 // https://www.udemy.com/learning-data-structures-in-javascript-from-scratch/learn/v4/t/lecture/6107384?start=0
-
+// JS裡面，其實沒有class概念，是用下面這種constructor functions來達成...
 function User (firstName, lastName, age, gender) {
   this.firstName = firstName
   this.lastName = lastName
@@ -11,6 +11,7 @@ var user1 = new User('Howard', 'Huang', 35, 'male')
 var user2 = new User('Cathy', 'Wu', 34, 'female')
 
 // 透過原型去擴充Class以及繼承該Class的Object
+// 透過原型去擴充的好處是，這些屬性與方法，只存在一份，而所有的繼承對象都透過原型鍊取用
 User.prototype.emailDomain = '@facebook.com'
 User.prototype.getEmailAddress = function () {
   return this.firstName + this.lastName + this.emailDomain
