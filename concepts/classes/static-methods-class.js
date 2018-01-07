@@ -24,7 +24,7 @@ MyClass.prototype.publicMethod = function () {
     console.log('來自Public Method')
 };
 
-var myObj = new MyClass(); // new object instance
+var myObj = new MyClass()
 
 myObj.publicMethod() // 來自Public Method
 myObj.privilegedMethod() // ​​​​​​​​​​我可以存取：Private Variable​​​​​
