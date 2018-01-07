@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>零用錢差異計算</title>
+</head>
+
+<body>
+    <form>
+        悠遊卡餘額:
+        <br>
+        <input id="easyCardRemains" type="text" name="easyCardRemains" value="0">
+        <br>
+        
+        皮包餘額:
+        <br>
+        <input id="walletRemains" type="text" name="walletRemains" value="0">
+        <br>
+        YNAB零用錢餘額:
+        <br>
+        <input id="ynabRemains" type="text" name="ynabRemains" value="0">
+        <br>
+        <input type="submit" value="計算" onclick="processFormData()">
+    </form>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
