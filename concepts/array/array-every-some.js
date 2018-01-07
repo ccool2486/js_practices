@@ -19,49 +19,49 @@
 
 // 只要有任意一次遍历返回 true，some() 就会中断，并返回 true；否则返回 false
 (function () {
-  var ar = ['Lara', 'Sachin', 'De Villiers'];
+  var ar = ['Lara', 'Sachin', 'De Villiers']
   ar.some(function (v) {
     if (v === 'Sachin') {
-      console.log('Great cricketers: ' + v);
+      console.log('Great cricketers: ' + v)
     }
-  });
+  })
 })();
 
 // 只要有任意一次遍历返回 false，every() 就会中断，并返回 false；否则返回 true
 (function () {
-  var ar = ['Hans Zimmer', 'Bill Clinton', 'Clint Mansell'];
+  var ar = ['Hans Zimmer', 'Bill Clinton', 'Clint Mansell']
   ar.every(function (v) {
     if (v === 'Bill Clinton') {
-      return false;
+      return false
     }
-    console.log('Great Composers: ' + v);
-  });
+    console.log('Great Composers: ' + v)
+  })
 })();
 
 // every() 和 some() 实例
 (function () {
-  function isBigEnough(element) {
-    return element >= 10;
+  function isBigEnough (element) {
+    return element >= 10
   }
 
-  function isBigEnough2(element) {
-    return element >= 1;
+  function isBigEnough2 (element) {
+    return element >= 1
   }
 
-  var passed = [2, 5, 8, 1, 4].some(isBigEnough);
-  console.log('some: For [2, 5, 8, 1, 4] are the values larger or equal to 10 ? ' + passed);
+  var passed = [2, 5, 8, 1, 4].some(isBigEnough)
+  console.log('some: For [2, 5, 8, 1, 4] are the values larger or equal to 10 ? ' + passed)
   // some: For [2, 5, 8, 1, 4] are the values larger or equal to 10 ? false
 
-  var passed = [12, 5, 8, 1, 4].some(isBigEnough);
-  console.log('some: For [12, 5, 8, 1, 4] are the values larger or equal to 10 ? ' + passed);
-  // some: For [12, 5, 8, 1, 4] are the values larger or equal to 10 ? true
+  var passed = [12, 5, 8, 1, 4].some(isBigEnough2)
+  console.log('some: For [12, 5, 8, 1, 4] are the values larger or equal to 1 ? ' + passed)
+  // some: For [12, 5, 8, 1, 4] are the values larger or equal to 1 ? true
 
-  var passed = [12, 5, 8, 1, 4].every(isBigEnough);
-  console.log('every: For [12, 5, 8, 1, 4] are "ALL" the values larger or equal to 10 ? ' + passed);
+  var passed = [12, 5, 8, 1, 4].every(isBigEnough)
+  console.log('every: For [12, 5, 8, 1, 4] are "ALL" the values larger or equal to 10 ? ' + passed)
   // every: For [12, 5, 8, 1, 4] are "ALL" the values larger or equal to 10 ? false
 
-  var passed = [12, 5, 8, 1, 4].every(isBigEnough2);
-  console.log('every: For [12, 5, 8, 1, 4] are "ALL" the values larger or equal to 1 ? ' + passed);
+  var passed = [12, 5, 8, 1, 4].every(isBigEnough2)
+  console.log('every: For [12, 5, 8, 1, 4] are "ALL" the values larger or equal to 1 ? ' + passed)
   // every: For [12, 5, 8, 1, 4] are "ALL" the values larger or equal to 1 ? true
 
-})();
+})()
