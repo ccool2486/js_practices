@@ -21,90 +21,94 @@
 
 // 1. 全局 this
 console.log(this === window); // true
-var foo = "bar";
-console.log(this.foo); // "bar"
+var foo = 'bar'
+console.log(this.foo) // "bar"
 console.log(window.foo); // "bar"
 
 // 2. 函数里的 this
-foo = "bar";
+foo = 'bar'
 function testThis() {
-  this.foo = "foo";
+  this.foo = 'foo'
 }
-console.log(this.foo); // logs "bar"
-testThis();
-console.log(this.foo); // logs "foo"
+console.log(this.foo) // "bar", this是window
+testThis() // testThis()改變了全域內的foo
+console.log(this.foo) // "foo"
 
 // 3. 原型链上的 this
-function Thing() {
-  console.log(this.foo);
+function Thing() { // contructor function
+  this.foo1 = 'bar1'
+  console.log(this.foo2)
 }
-Thing.prototype.foo = "bar";
-var thing = new Thing(); // logs "bar"
-console.log(thing.foo); // logs "bar"
+Thing.prototype.foo2 = 'bar2'
+var thing = new Thing()
+console.log(thing.foo1) // bar1
+console.log(thing.foo2) // bar2
 
 // 4. 对象里的 this
 var obj = {
-  foo: "bar",
-  logFoo: function() {
-    console.log(this.foo);
+  foo: 'bar',
+  logFoo: function () {
+    console.log(this.foo)
   }
-};
-obj.logFoo(); // logs "bar"
+}
+obj.logFoo() // "bar"
 
 // 5. DOM 事件上的 this
-function Listener() {
-  document.getElementById("foo").addEventListener("click", this.handleClick);
+function Listener () {
+  document.getElementById('foo').addEventListener('click', this.handleClick)
 }
 Listener.prototype.handleClick = function(event) {
-  console.log(this); // logs "<div id="foo"></div>"
+  console.log(this) // logs "<div id="foo"></div>"
 };
-var listener = new Listener();
-document.getElementById("foo").click(); // logs "<div id="foo"></div>"
+var listener = new Listener()
+document.getElementById('foo').click() // logs "<div id="foo"></div>"
 
 // 6. HTML 里的 this
 
 // <div id="foo" onclick="console.log(this);"></div>
 // <script type="text/javascript">
-document.getElementById("foo").click(); // logs <div id="foo"...
+document.getElementById('foo').click() // logs <div id="foo"...
 // </script>
 
 // 7. jQuery 里的 this
 // <div class="foo bar1"></div>
 // <div class="foo bar2"></div>
 //  <script type="text/javascript">
-$(".foo").each(function() {
-  console.log(this); // logs <div class="foo...
-});
-$(".foo").on("click", function() {
-  console.log(this); // logs <div class="foo...
-});
-$(".foo").each(function() {
-  this.click();
-});
+$('.foo').each(function() {
+  console.log(this) // logs <div class="foo...
+})
+$('.foo').on('click', function() {
+  console.log(this) // logs <div class="foo...
+})
+$('.foo').each(function() {
+  this.click()
+})
 // </script>
 
 // 8. 在 call(), apply() and bind() 方法里的 this
-
+// 範例：加法
 function add(inc1, inc2) {
-  return this.a + inc1 + inc2;
+  return this.a + inc1 + inc2
 }
 
-var o = { a: 4 };
-document.write(add.call(o, 5, 6) + "<br />"); // 15
+var o = { a: 4 }
+document.write(add.call(o, 5, 6) + '<br />') // 15
 // add.call(o,5,6) 将外层 this 作用域代入到了内部
 // 调用 add() 时：
 // this.a + inc1 + inc2 即
 // o.a（4） + 5 + 6 = 15
-document.write(add.apply(o, [5, 6]) + "<br />"); // 15
+// 如果不用call的話，會是this會是document還是window?
+
+document.write(add.apply(o, [5, 6]) + '<br />') // 15
 // o.a（4） + 5 + 6 = 15
 
-var g = add.bind(o, 5, 6); // g: `o.a` i.e. 4 + 5 + 6
-document.write(g() + "<br />"); // 15
+var g = add.bind(o, 5, 6) // g: `o.a` i.e. 4 + 5 + 6
+document.write(g() + '<br />') // 15
 
-var h = add.bind(o, 5); // h: `o.a` i.e. 4 + 5 + ?
-document.write(h(6) + "<br />"); // 15
+var h = add.bind(o, 5) // h: `o.a` i.e. 4 + 5 + ?
+document.write(h(6) + '<br />') // 15
 // 4 + 5 + 6 = 15
-document.write(h() + "<br />"); // NaN
+document.write(h() + '<br />') // NaN
 // 没有给 h() 传入参数
 // 因此，在 add 内的 inc2 是 undefined
 // 4 + 5 + undefined = NaN
