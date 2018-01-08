@@ -112,3 +112,22 @@ document.write(h() + '<br />') // NaN
 // 没有给 h() 传入参数
 // 因此，在 add 内的 inc2 是 undefined
 // 4 + 5 + undefined = NaN
+
+/**
+ * FunFunFunction的範例
+ * https://www.youtube.com/watch?v=GhbhD1HR5vk
+ */
+
+let dog = {
+  sound: 'woof',
+  talk: function () {
+    console.log(this.sound)
+  }
+}
+
+dog.talk() // woof
+let talkFunction = dog.talk // 這邊的talkFunction就不會是一個在對象裡的方法了，而是一個單純的function
+// this是什麼，要取決於他在「哪裡」被執行...
+talkFunction() // undefined, 這是因為global環境裡面並沒有sound這個屬性
+var boundFunction = talkFunction.bind(dog) // 我們可以用bind來修復上面的問題 
+boundFunction() // woof
