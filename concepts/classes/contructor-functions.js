@@ -23,7 +23,7 @@ User.prototype.getEmailAddress = function () {
 user1.emailDomain // @facebook.com
 user2.emailDomain // @facebook.com
 user1.getEmailAddress() // HowardHuang@facebook.com
-user2.getEmailAddress() //​​​​​ CathyWu@facebook.com​​​​​
+user2.getEmailAddress() //​​​​​ CathyWu@facebook.com
 
 // subclass的做法...
 // 以下定義一個好人的類別，讓他繼承User類別
@@ -37,6 +37,7 @@ function NicePerson (firstName, lastName, age, gender) {
 }
 
 NicePerson.prototype = User
+// 上面這行寫這這樣也可以： NicePerson.prototype = Object.create(User.prototype) https://www.udemy.com/top-javascript-interview-questions-and-answers/learn/v4/t/lecture/4673508?start=0
 NicePerson.prototype.getAttitue = function () {
   return this.attitude
 }
@@ -48,4 +49,4 @@ NicePerson.prototype.getEmailAddress = function () {
 }
 NicePerson.prototype.emailDomain = '@nicefacebook.com'
 
-angie.getEmailAddress() // niceAngieWu@nicefacebook.com​​​​​
+angie.getEmailAddress() // niceAngieWu@nicefacebook.com

@@ -37,7 +37,7 @@ var car = {
   init: function (brand, model) {
     this.brand = brand
     this.model = model
-    return this
+    return this // [重要！] 沒有這行就沒有用了
   },
   brand: 'Default',
   model: 'Default',
@@ -47,4 +47,20 @@ var car = {
 }
 
 var model3 = Object.create(car).init('Tesla', 'Model 3') // 透過Object.create去繼承一另一個物件，並且擁有contructor同等的機制
-console.log(model3.whatcar()) //​​​​​Hi, This is a Tesla Model 3​​​​​
+console.log(model3.whatcar()) // ​​​​​Hi, This is a Tesla Model 3
+
+// 如果不用init的做法，也可以使用參數的方式，把屬性傳進去，只是麻煩點
+// [注意！] 這樣子傳的話，參數本身要包在另一個對象裡面： https://stackoverflow.com/questions/37672693/whats-the-proper-way-of-using-property-descriptors-in-object-create
+var models = Object.create(car, {brand: {value: 'Tesla'}, model: {value: 'Model S'}})
+console.log(models.whatcar()) // ​​​​​Hi, This is a Tesla Model S
+
+// 也可使用Factory的方式，把參數用另一個Factory Function傳進去 https://www.udemy.com/top-javascript-interview-questions-and-answers/learn/v4/t/lecture/4673516?start=0
+var carFactory = function (brand, model) {
+  var carInit = Object.create(car)
+  carInit.brand = brand
+  carInit.model = model
+  return carInit // 回傳一個init好的物件
+}
+
+var modelx = carFactory('Tesla', 'Model X')
+console.log(modelx.whatcar()) // ​​​​​Hi, This is a Tesla Model X
