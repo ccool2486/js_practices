@@ -7,6 +7,7 @@ function User (firstName, lastName, age, gender) {
   this.gender = gender
 }
 
+// User在生成的時候，其實會生成這個東西：User.prototype = {}
 var user1 = new User('Howard', 'Huang', 35, 'male')
 var user2 = new User('Cathy', 'Wu', 34, 'female')
 
