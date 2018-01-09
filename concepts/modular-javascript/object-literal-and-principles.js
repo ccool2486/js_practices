@@ -1,6 +1,7 @@
 /**
  * Modular Javascript
  * https://www.youtube.com/watch?v=HkFlM73G-hk&index=1&list=PLoYCgNOIyGABs-wDaaxChu82q_xQgUb4f
+ * github src: https://github.com/pandemiccreative/modular_javascript/tree/master/js
  */
 
 /**
