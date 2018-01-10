@@ -61,10 +61,7 @@ git pull origin master
 
 [JavaScript - The Right Way](http://jstherightway.org/)
 
-<br/>
+[Learn ES6]
+(https://github.com/ashB100/learn-es6)
 
-# 了解各種JavaScript概念
-## 基礎
-- [字符串方法](concepts/js/string-methods.js)
-- [强制类型转换](concepts/js/coercion.js)
-- [带有 string 的逻辑操作](concepts/js/logical-operations-with-string.js)
+<br/>
