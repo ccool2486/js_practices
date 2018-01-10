@@ -1,6 +1,7 @@
 // JS裡的prototype，本質上跟其他語言的class不一樣
 // 即便是es6的class用法, 也不是實際上的class
 // 如果完全拋棄class的思維，我們可以用Object.create來實作跟class相同的結果
+// 這個寫法我們會說是prototypal的繼承方式 https://www.youtube.com/watch?v=doXpW5AD60Q&index=7&list=PLoYCgNOIyGABs-wDaaxChu82q_xQgUb4f
 
 var friend = {
   firstName: 'Default',
