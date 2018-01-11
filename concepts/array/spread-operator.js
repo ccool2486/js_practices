@@ -15,7 +15,7 @@ console.log(first) // [1, 2, 3, [4, 5, 6]] 不是我們想要的，因為second�
 first.push(...second) // 變成一個一個值塞進去
 console.log(first) // [1, 2, 3, 4, 5, 6]
 
-// This works for pushing in things for parameters:
+// 來做一個放進「前三個值」的函式
 function addThreeThings (a, b, c) {
   let result = a + b + c
   console.log(result)
