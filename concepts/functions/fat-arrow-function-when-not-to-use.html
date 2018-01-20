@@ -1,0 +1,60 @@
+<!-- https://courses.wesbos.com/account/access/59870ecc730b2a3a098bb4da/view/174357540  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>When _not_ to use arrows =></title>
+</head>
+<body>
+<style>
+  button { font-size: 100px; }
+  .on { background: #ffc600; }
+</style>
+<button id="pushy">Push Me</button>
+
+<script>
+  // 當我們需要使用this的時候...
+  const button = document.querySelector('#pushy');
+  button.addEventListener('click', function() { // 如果這裡是FAF的話，this會是window
+    console.log(this);
+    this.classList.toggle('on');
+  });
+
+  // 當你物件裡的方法有用到this去參閱自己的話...
+  const person = {
+    points: 23,
+    score() { // 如果這裡用FAF的話，this會是window
+      console.log(this);
+      this.points++;
+    }
+  }
+
+  // 當你在prototype上面擴增功能，有用到this的時候...
+  class Car {
+    constructor(make, colour) {
+      this.make = make;
+      this.colour = colour;
+    }
+  }
+
+  const beemer = new Car('bmw', 'blue');
+  const subie = new Car('Subaru', 'white');
+
+  Car.prototype.summarize = function() { // 這裡如果用FAF，下面都會出undefined，因為都是window
+     return `This car is a ${this.make} in the colour ${this.colour}`;
+  };
+
+  // 當你需要使用arguments的時候... FAF不支援arguments
+  const orderChildren = function() {
+    const children = Array.from(arguments);
+    return children.map((child, i) => {
+      return `${child} was child #${i + 1}`;
+    })
+    console.log(arguments);
+  }
+
+
+</script>
+</body>
+</html>
