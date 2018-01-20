@@ -2,6 +2,7 @@
 * Fat Arrow Functions（FAF）的特徵：
 * 1) 可以把code寫短一點
 * 2) 在FAF裡的this, 「不會」是執行這個function的主體，「而是」箭頭函式的this，指的是被宣告時的主體
+* 3) 不能給名字，只能是匿名的函式。所以常常會放在變數裡面。
 */
 
 // ES6以前的一般function
