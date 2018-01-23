@@ -29,20 +29,26 @@ class App extends Component { // 注意元件開頭第一個字母都要大寫
   render() {
     return (
       // 這邊放JSX...
+      <FunctionalComponent props={}/> // 或是引入component，且把props傳下去component
     );
   }
 }
 
 // ES6 Class Component
 class ClassComponent extends Component {
+  
   // render 是 Class based 元件唯一必須的method
   render() {
+    // 邏輯放這裡...
     return /*這邊放JSX*/
   }
 }
 
 // Functional Component
 // 單純地 render UI 的 stateless components，沒有內部狀態、沒有實作物件和 ref，沒有生命週期函數。若非需要控制生命週期的話建議多使用 stateless components 獲得比較好的效能
-const FunctionalComponent = () => /*這邊放JSX*/;
+const FunctionalComponent = () => {
+  // 邏輯放這裡...
+  return /*這邊放JSX*/
+};
 
 export default App;
