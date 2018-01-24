@@ -24,7 +24,7 @@ class App extends Component { // 元件開頭第一個字母都要大寫
 
   // 透過setState更新state
   updateStateCount(){
-    this.setState((prevState) => { // 原本的state會被傳入
+    this.setState((prevState) => { // 原本的state會被傳入，要用到的時候在寫參數名稱就好
       return {count: prevState + 1} // [注意！] 把「要更新的部分」用一個物件return回去
     })
   }
