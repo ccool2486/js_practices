@@ -6,7 +6,7 @@ console.log(b) // 2
 
 let [c, ...d] = numbers
 console.log(c) // 1
-console.log(d) // [ 2, 3]​​​​​
+console.log(d) // [ 2, 3]
 
 let [e = 'default', f, g, h = 'default'] = numbers
 console.log(e) // 1
