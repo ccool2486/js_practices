@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-
+// https://www.udemy.com/react-2nd-edition/learn/v4/t/lecture/7900042?start=0
 
 //// 總是有很多的action，透過這裡的方式，可以把結構給拆分，方便管理
 // ADD_EXPENSE
