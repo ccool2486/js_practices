@@ -18,6 +18,64 @@
  * http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
  */
 
+
+
+/**
+ * ES6 Modules
+ *
+ * ES6 的模块机制支持同步/异步两种方法，
+ * 更棒的是，它也同时支持浏览器端和服务端两种环境。
+ */
+
+// 暴露模块
+// exporter.js
+export function someMethod() {
+  // Do some stuff
+}
+
+export var another = {};
+
+// 引用模块
+// importer.js
+import { someMethod, another as newName } from './exporter';
+
+someMethod();
+// typeof newName == 'object';
+
+
+// 暴露/引用单个模块
+// export-default.js
+export default function foo() {
+  console.log('foo');
+}
+
+// import-default.js
+import customName from './export-default';
+customName(); // -> 'foo'
+
+
+// ES6 模块机制所支持的所有语法样式
+import 'jquery';                        // 单纯的引用一个模块
+import $ from 'jquery';                 // 引用模块里默认的某个命名输出
+import { $ } from 'jquery';             // 引用模块里的命名某个输出
+import { $ as jQuery } from 'jquery';   // 引用模块里的命名某个输出，并重新定义命名
+
+export var x = 42;                      // 暴露一个变量
+export function foo() {};               // 暴露一个命名函数
+
+export default 42;                      // 暴露一个默认输出
+export default function foo() {};       // 暴露一个函数作为默认输出
+
+var encrypt = {};
+var decrypt = {};
+export { encrypt };                     // 暴露一个存在的变量
+export { decrypt as dec };              // 暴露一个变量，并重新命名
+export { encrypt as en } from 'crypto'; // 从其他模块引用之后重新命名，再暴露出去
+export * from 'crypto';                 // 从其他模块引用所有的模块，再暴露出去
+
+import * as crypto from 'crypto';    // 从其他模块引用所有输出，并命名为 crypto
+
+
 /**
  * AMD - 定义异步模块
  *
@@ -134,59 +192,3 @@ define(function (require, exports, module) {
   exports.max = math.max;
   exports.add = math.add;
 });
-
-
-/**
- * ES6 Modules
- *
- * ES6 的模块机制支持同步/异步两种方法，
- * 更棒的是，它也同时支持浏览器端和服务端两种环境。
- */
-
-// 暴露模块
-// exporter.js
-export function someMethod() {
-  // Do some stuff
-}
-
-export var another = {};
-
-// 引用模块
-// importer.js
-import { someMethod, another as newName } from './exporter';
-
-someMethod();
-// typeof newName == 'object';
-
-
-// 暴露/引用单个模块
-// export-default.js
-export default function foo() {
-  console.log('foo');
-}
-
-// import-default.js
-import customName from './export-default';
-customName(); // -> 'foo'
-
-
-// ES6 模块机制所支持的所有语法样式
-import 'jquery';                        // 单纯的引用一个模块
-import $ from 'jquery';                 // 引用模块里默认的某个命名输出
-import { $ } from 'jquery';             // 引用模块里的命名某个输出
-import { $ as jQuery } from 'jquery';   // 引用模块里的命名某个输出，并重新定义命名
-
-export var x = 42;                      // 暴露一个变量
-export function foo() {};               // 暴露一个命名函数
-
-export default 42;                      // 暴露一个默认输出
-export default function foo() {};       // 暴露一个函数作为默认输出
-
-var encrypt = {};
-var decrypt = {};
-export { encrypt };                     // 暴露一个存在的变量
-export { decrypt as dec };              // 暴露一个变量，并重新命名
-export { encrypt as en } from 'crypto'; // 从其他模块引用之后重新命名，再暴露出去
-export * from 'crypto';                 // 从其他模块引用所有的模块，再暴露出去
-
-import * as crypto from 'crypto';    // 从其他模块引用所有输出，并命名为 crypto

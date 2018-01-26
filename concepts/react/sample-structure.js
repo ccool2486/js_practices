@@ -13,7 +13,15 @@ class App extends Component { // 元件開頭第一個字母都要大寫
     }
   }
 
+  // state在支援ES6 Class Property的情況下，可以不放在contructor內，可以放在這邊
+  // 甚至大部分情況下，可以不用constructor: https://www.udemy.com/react-2nd-edition/learn/v4/t/lecture/7707754?start=0
+  state = {
+    count: 0,
+    speed: props.speed // 吃預設值
+  }
+
   // 使用FAF的話就不用bind
+  // 不過這其實是ES6 Class Property的用法，這需要babel過才可以用，但是create-react-app裡面有內建
   myFunctionFAF = () => {
   }
 
