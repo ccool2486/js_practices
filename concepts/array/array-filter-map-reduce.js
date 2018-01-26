@@ -1,39 +1,40 @@
-/**
- * Array filter(), map() and reduce()
- *
- * @参考资料：
- * http://danmartensen.svbtle.com/javascripts-map-reduce-and-filter
- * http://elijahmanor.com/reducing-filter-and-map-down-to-reduce/
- * http://cryto.net/~joepie91/blog/2015/05/04/functional-programming-in-javascript-map-filter-reduce/
- *
- * 进阶学习：
- * JavaScript 内部实现 filter, map, reduce 的方式:
- * http://matthewodette.com/map-filter-and-fold-in-javascript/
- */
+  /**
+   * Array filter(), map() and reduce()
+   *
+   * @参考资料：
+   * http://danmartensen.svbtle.com/javascripts-map-reduce-and-filter
+   * http://elijahmanor.com/reducing-filter-and-map-down-to-reduce/
+   * http://cryto.net/~joepie91/blog/2015/05/04/functional-programming-in-javascript-map-filter-reduce/
+   *
+   * 进阶学习：
+   * JavaScript 内部实现 filter, map, reduce 的方式:
+   * http://matthewodette.com/map-filter-and-fold-in-javascript/
+   */
 
-/** 普通的 for() 循环
- * for 循环在处理大型数组时依旧有用武之地（例如，拥有 1000 个元素的数组）
- * 或者需要在循环时根据条件来中断的话，for 也依旧很好用
- */
+  /** 普通的 for() 循环
+   * for 循环在处理大型数组时依旧有用武之地（例如，拥有 1000 个元素的数组）
+   * 或者需要在循环时根据条件来中断的话，for 也依旧很好用
+   */
 
- // 找出陣列中能被2整除的index，但我不懂為什麼要這樣子寫
-(function () {
-  var array = [1, 2, 3, 4];
-  var models = [];
-  for (var i = 0; i < array.length; i++) {
-    if (array.indexOf(array[i]) % 2 === 0) {
-      models.push(array[i]);
+  // 找出陣列中能被2整除的index，但我不懂為什麼要這樣子寫
+  function() {
+    var array = [1, 2, 3, 4];
+    var models = [];
+    for (var i = 0; i < array.length; i++) {
+      if (array.indexOf(array[i]) % 2 === 0) {
+        models.push(array[i]);
+      }
     }
   }
-})();
+)();
 
- // 為什麼不這樣寫？
+// 為什麼不這樣寫？
 (function() {
   var array2 = [1, 2, 3, 4];
   var models2 = [];
   for (let i = 0; i < array2.length; i++) {
-    if (array2[i] % 2 === 0){
-      models2.push(array2[i-1])
+    if (array2[i] % 2 === 0) {
+      models2.push(array2[i - 1]);
     }
   }
 })();
@@ -46,7 +47,7 @@
  *  map 方法做了什么：
  *  从左往右遍历数组，将各元素分别代入回调函数进行调用，并返回回调函数的返回值，最终组成一个新的数组
  *  [注意！] map不會修改原本的陣列，而是返回一個新的陣列
- *  
+ *
  *  举个栗子：把 一组华氏温度 转换成 一组摄氏温度
  *
  *  语法：
@@ -63,25 +64,57 @@
 // FFF範例 https://www.youtube.com/watch?v=bCqtb-Z5YGQ&index=2&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84
 // 例如要把所有動物的名字輸出
 var animals = [
-  {name : 'Fluffykins', species : 'rabbit'},
-  {name : 'Caro', species : 'dog'},
-  {name : 'Hamilton', species : 'fish'},
-  {name : 'Harold', species : 'cat'},
-  {name : 'Jimmy', species : 'fish'}
-]
+  { name: "Fluffykins", species: "rabbit" },
+  { name: "Caro", species: "dog" },
+  { name: "Hamilton", species: "fish" },
+  { name: "Harold", species: "cat" },
+  { name: "Jimmy", species: "fish" }
+];
 
-let animalNames = animals.map((x) => x.name) 
-console.log(animalNames) // [ 'Fluffykins', 'Caro', 'Hamilton', 'Harold', 'Jimmy' ]
+let animalNames = animals.map(x => x.name);
+console.log(animalNames)(
+  // [ 'Fluffykins', 'Caro', 'Hamilton', 'Harold', 'Jimmy' ]
 
-// 一组华氏温度 转换成 一组摄氏温度
-(function() {
-  var farenheit = [0, 32, 45, 55, 67, 79, 94, 105];
-  var celcius = farenheit.map(function(elem) {
-    return Math.round((elem - 32) * 5 / 9);
-  });
+  // 一组华氏温度 转换成 一组摄氏温度
+  function() {
+    var farenheit = [0, 32, 45, 55, 67, 79, 94, 105];
+    var celcius = farenheit.map(function(elem) {
+      return Math.round((elem - 32) * 5 / 9);
+    });
 
-  console.log(celcius); // [-18, 0, 7, 13, 19, 26, 34, 41]
-})();
+    console.log(celcius); // [-18, 0, 7, 13, 19, 26, 34, 41]
+  }
+)();
+
+// Ｍap配合上Spread拿來更新資料不錯用 https://www.udemy.com/react-2nd-edition/learn/v4/t/lecture/7900046?start=0
+const comments = [
+  {
+    id: 1,
+    name: "Howard",
+    messege: "This a good post"
+  },
+  {
+    id: 2,
+    name: "Angel",
+    messege: "This a bad post"
+  }
+];
+
+const update = { id: 2, message: "UPADTED!" };
+const newComment = comments.map(elem => {  
+  if (elem.id === update.id) {
+    return { // 這裡配合上spread很好，可以更簡化，但可能需要babel: {...elem, ...updates}
+      id: elem.id,
+      name: elem.name,
+      messege: update.message
+    };
+  } else {
+    return elem;
+  }
+});
+
+console.log(newComment) // Angel的comment會變成“UPADTED!”
+
 
 
 /** Array.filter()
@@ -108,17 +141,24 @@ console.log(animalNames) // [ 'Fluffykins', 'Caro', 'Hamilton', 'Harold', 'Jimmy
  *  thisArg: 作为回调中的作用域（this）
  */
 
+// Filter在FFP裡面，拿來濾掉資料挺好的，離如說刪除紀錄啊什麼的... https://www.udemy.com/react-2nd-edition/learn/v4/t/lecture/7900044?start=0
+const userIDs = [321387, 134122, 123182, 231231];
+const idToRemove = 231231;
+const newUserIDs = userIDs.filter(id => id !== idToRemove);
+console.log(newUserIDs)(
+  // ​​​​​[ 321387, 134122, 123182 ]​​​​​ 移掉了那一個
 
-// 移除数组中重复的元素
-// 原理是，如果這個數字是第一次出現，那麼他的indexof()的值一定是他自己的index。如果有任何數字第二次出現，他的indexof()的值會在前面
-(function() {
-  var arr = [11, 2, 3, 4, 5, 3, 7, 2];
-  var uniqueArr = arr.filter(function(elem, i, arr) {
-    return arr.indexOf(elem) === i;
-  });
+  // 移除数组中重复的元素
+  // 原理是，如果這個數字是第一次出現，那麼他的indexof()的值一定是他自己的index。如果有任何數字第二次出現，他的indexof()的值會在前面
+  function() {
+    var arr = [11, 2, 3, 4, 5, 3, 7, 2];
+    var uniqueArr = arr.filter(function(elem, i, arr) {
+      return arr.indexOf(elem) === i;
+    });
 
-  console.log(uniqueArr);
-})();
+    console.log(uniqueArr);
+  }
+)();
 
 /** Array.reduce()
  *
@@ -156,7 +196,7 @@ console.log(animalNames) // [ 'Fluffykins', 'Caro', 'Hamilton', 'Harold', 'Jimmy
   ];
 
   var totalLaunches = rockets.reduce(function(sum, elem) {
-    return sum + elem.launches
+    return sum + elem.launches;
   }, 0);
 
   console.log(totalLaunches);
