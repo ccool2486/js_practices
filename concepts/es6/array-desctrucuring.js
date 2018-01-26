@@ -25,6 +25,9 @@ console.log(i) // 100
 console.log(j) // 10
 */
 
+// 拿來取代concat蠻好用的
+const newNumbers = [...numbers, 4] // [1, 2, 3, 4]
+
 // 透過空白格，我們可以方便找出某個位置的陣列值
 var [first,,,,fifth] = ['red', 'yellow', 'green', 'blue', 'orange']
 console.log(first) // red
