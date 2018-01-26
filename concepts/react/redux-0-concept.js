@@ -1,4 +1,10 @@
 // 圖解: https://github.com/springload/react-redux-exercise (第一張圖很好理解)
+// When do I know I’m ready for Redux? https://medium.com/dailyjs/when-do-i-know-im-ready-for-redux-f34da253c85f
+
+/**
+ * Redux is a tool for managing application state.
+ * - Dispatch an action -> triggers our Reducer function -> updates our Store.
+ */
 
 /**
  * 用餐廳的運作做想像：
@@ -19,16 +25,21 @@
  *   那麼櫃檯看到手機後，就自動會帶位新的客人到這個桌子，而「不用服務生親自去跟櫃台人員說」才會做事 (props)
  * 
  * ---States v.s Redux---
- * - State需要由State的持有人更新狀態 （setState）
- *   有時候這樣會一直用props一直傳下去setState functions，挺麻煩的
+ * - State需要由State的持有者更新狀態 （setState）
+ *   有時候這樣會一直用props一直傳下去setState functions，挺麻煩的 （例如：<ChildComponet props={} handelUpdate={this.handleUpdate}/>）
  * - Redux不用一直往下傳functions，大家可以直接跟領班說發生了什麼事情 （dispatching actions to Reducer）
  * - State做法時，有State的Component會越來越多，然後變成跨State的更新變得複雜，因為不同的狀態是活在不同的instance裡面
  *   A底下的A-1, A-2會更新B裡面的States，會讓資料變亂，但有時候邏輯上又的確需要這樣子 （例如Users跟Orders，中間會有要溝通的，拆成兩個State會有這個麻煩）
  * - Redux做法時，只有一個大state，不會有多個State的可能，這讓管理變得簡單 (Store, Reducers, Reducer)
+ * - Redux的Class Component會比較少
+ * - Redux中的APP全貌比較好理解，因為Store都在同一個地方，也沒有把setState一直傳遞下去
+ * - Redux Debbuger很好用
+ * - Unit Test會很好寫
  
  * 
  * Store: 一個儲存所有資料/狀態的物件
  * 像是「一個餐廳，有一個老闆坐在一個小房間，裡面有一個電視牆跟儀表板去紀錄所有桌子的用餐狀態/服務生的狀態，」
+ * -  React components can subscribe to the store and whenever the store is updated
  * 
  * Provider:
  * 
@@ -49,6 +60,8 @@
  * Reducers:
  * 像是「餐廳裡面的大主管，他會去『接受』領班所所發出的actions」
  * 大主管會跟小主管們溝通現在的「狀態」，例如哪裡有空位，哪裡客人變少了
+ * - The reducer is a "pure" function that describes how each action updates the store.
+ * - A reducer will always return a new application state
  * 
  * Reducer:
  * 像是「廚房裡的主廚，前台接待櫃檯，服務生小主管」
