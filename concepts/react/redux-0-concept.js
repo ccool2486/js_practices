@@ -10,7 +10,7 @@
  * ---用State/Props的話，相當於大家會自動通知其他人---
  * - 主管說：「現在哪幾桌是還沒有點餐的」 （state）
  * - 服務員說：「好，那我來跟他們點餐」，「現在點完了」（setState）
- * - 因為只有主管自己有state，所以相當於服務員請主管去更新狀態 （setState）
+ * - 因為只有主管自己有state，所以相當於服務員請主管去更新狀態 （setState），更新完狀態後，主管才會叫別人做別的事情 (rerender virtual DOM)
  * 
  * ---用redux的話，相當於有一個老闆接收大家所有的訊息，整理在一個很大的儀表板上面 (store)---
  * - 每個人身上有一個小手機，把每個人需要的的資料從儀表版中拿出一點點出來 （props）
@@ -22,6 +22,9 @@
  * - State需要由State的持有人更新狀態 （setState）
  *   有時候這樣會一直用props一直傳下去setState functions，挺麻煩的
  * - Redux不用一直往下傳functions，大家可以直接跟領班說發生了什麼事情 （dispatching actions to Reducer）
+ * - State做法時，有State的Component會越來越多，然後變成跨State的更新變得複雜，因為不同的狀態是活在不同的instance裡面
+ *   A底下的A-1, A-2會更新B裡面的States，會讓資料變亂，但有時候邏輯上又的確需要這樣子 （例如Users跟Orders，中間會有要溝通的，拆成兩個State會有這個麻煩）
+ * - Redux做法時，只有一個大state，不會有多個State的可能，這讓管理變得簡單 (Store, Reducers, Reducer)
  
  * 
  * Store: 一個儲存所有資料/狀態的物件
