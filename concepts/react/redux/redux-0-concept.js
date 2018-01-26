@@ -64,6 +64,7 @@
  * 大主管會跟小主管們溝通現在的「狀態」，例如哪裡有空位，哪裡客人變少了
  * - Reducer是一個「純」Fucntion，這個Function描述了每一個Action Type要如何更新Store
  * - 使用Reducers後，都會回傳一個新的APP狀態
+ * - 使用reducer的角色的原因是，把它獨立出來後，他就不可能去修改action的定義
  * 
  * Reducer:
  * 像是「廚房裡的主廚，前台接待櫃檯，服務生小主管」
