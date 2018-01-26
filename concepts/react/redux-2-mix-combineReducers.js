@@ -11,10 +11,10 @@ import { createStore, combineReducers } from 'redux';
 // SET_START_DATE
 // SET_END_DATE
 
-// Expenses Reducer
+// Expenses Reducer：預設值
 const expensesReducerDefaultState = []; // store.expenses中的預設值, 目前是空的
 
-// 把Expenses相關的預設值跟actions兜在變成一個reducer
+// Expenses Reducer：把Expenses相關的預設值跟actions兜在變成一個reducer
 const expensesReducer = (state = expensesReducerDefaultState, action) => {
   switch (action.type) {
     default:
@@ -22,7 +22,7 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
   }
 };
 
-// Filters Reducer
+// Filters Reducer: 預設值
 const filtersReducerDefaultState = { // store.filters中的預設值
   text: '',
   sortBy: 'date',
@@ -30,7 +30,7 @@ const filtersReducerDefaultState = { // store.filters中的預設值
   endDate: undefined
 };
 
-// 把Filters相關的預設值跟actions兜在變成一個reducer
+// Filters Reducer: 把Filters相關的預設值跟actions兜在變成一個reducer
 const filtersReducer = (state = filtersReducerDefaultState, action) => {
   switch (action.type) {
     default:  

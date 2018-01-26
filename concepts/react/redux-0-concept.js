@@ -35,6 +35,7 @@
  * - Redux中的APP全貌比較好理解，因為Store都在同一個地方，也沒有把setState一直傳遞下去
  * - Redux Debbuger很好用
  * - Unit Test會很好寫
+ * - Redux中的Component，可以不用依賴props，這樣可以讓通用性變大，Component可以放在更多地方被使用
  
  * 
  * Store: 一個儲存所有資料/狀態的物件
@@ -50,6 +51,7 @@
  * 
  * React Component:
  * 像是「一個服務生，一個餐桌，一個菜單」
+ * - 透過store.getState把資料即時更新在手機上
  * 
  * Actions:
  * 像是「服務生跟領班說『我要去服務第二桌的客人』; 一個餐桌跟領班說『我的桌子現在要多坐了一個客人』; 菜單跟領班說說『客人黃軍皓要點椒麻雞』」
@@ -60,8 +62,8 @@
  * Reducers:
  * 像是「餐廳裡面的大主管，他會去『接受』領班所所發出的actions」
  * 大主管會跟小主管們溝通現在的「狀態」，例如哪裡有空位，哪裡客人變少了
- * - The reducer is a "pure" function that describes how each action updates the store.
- * - A reducer will always return a new application state
+ * - Reducer是一個「純」Fucntion，這個Function描述了每一個Action Type要如何更新Store
+ * - 使用Reducers後，都會回傳一個新的APP狀態
  * 
  * Reducer:
  * 像是「廚房裡的主廚，前台接待櫃檯，服務生小主管」
