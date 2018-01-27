@@ -47,6 +47,9 @@
  * Container:
  * 像是「餐廳裡面的大家手機中的APP」 （提供觀察store中的state的機制）
  * 
+ * Selectors:
+ * 像是「APP裡面的畫面，每個人會看到不同的資料」 （Filter出不同的資料）
+ * 
  * Middleware:
  * 
  * React Component:
