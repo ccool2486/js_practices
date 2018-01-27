@@ -15,6 +15,8 @@
 
 import { createStore } from 'redux'
 
+
+/** **** Action Generators **** */
 const incrementCount = ({ incrementBy = 1 } = {}) => ({ // 利用destructuring來設定預設值
   type: 'INCREMENT',
   incrementBy
@@ -34,7 +36,7 @@ const resetCount = () => ({
   type: 'RESET'
 })
 
-const store = createStore((state = { count: 0 }, action) => {
+const store = createStore((state = { count: 0 }, action) => { // Store & Reducers
   switch (action.type) {
     case 'INCREMENT':
       return {
@@ -60,6 +62,7 @@ store.subscribe(() => {
   console.log(store.getState())
 })
 
+/** **** 使用Action Generators去disptach而不是直接丟OBJ **** */
 store.dispatch(incrementCount({ incrementBy: 5 }))
 
 store.dispatch(incrementCount())
