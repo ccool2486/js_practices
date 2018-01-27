@@ -1,6 +1,6 @@
 import uuid from 'uuid';
 
-// 這邊放action generators
+// 這邊放跟Expense相關的action generators
 // ADD_EXPENSE
 export const addExpense = (
   {

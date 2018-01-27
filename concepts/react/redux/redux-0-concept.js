@@ -43,6 +43,7 @@
  * -  React components can subscribe to the store and whenever the store is updated
  * 
  * Provider:
+ * React-Redux提供的用法，用它包住APP，就可以在這個APP裡面使用Redux Store https://www.udemy.com/react-2nd-edition/learn/v4/t/lecture/7900116?start=0
  * 
  * Container:
  * 像是「餐廳裡面的大家手機中的APP」 （提供觀察store中的state的機制）
