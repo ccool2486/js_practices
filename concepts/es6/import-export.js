@@ -54,6 +54,9 @@ import customName from './export-default';
 customName(); // -> 'foo'
 
 
+// 暴露匿名的函式 https://stackoverflow.com/questions/36458697/is-it-possible-to-export-arrow-functions-in-es6-7
+export default () => console.log("say hello"); // import時 "default"，就會是這個函式的名稱
+
 // ES6 模块机制所支持的所有语法样式
 import 'jquery';                        // 单纯的引用一个模块
 import $ from 'jquery';                 // 引用模块里默认的某个命名输出
