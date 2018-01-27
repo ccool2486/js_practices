@@ -1,6 +1,10 @@
 // ES6提供了spread運算子
 // 可以幫助我們很快速的把陣列拆成多個值
 
+({
+  babel: true
+})
+
 console.log([1, 2, 3]) // [1, 2, 3]
 
 console.log(...[1, 2, 3]) // 1 2 3
@@ -38,3 +42,4 @@ var clonedObj = { ...obj1 };
 
 var mergedObj = { ...obj1, ...obj2 };
 // Object { foo: "baz", x: 42, y: 13 }
+
