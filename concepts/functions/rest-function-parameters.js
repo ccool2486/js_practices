@@ -44,3 +44,14 @@ function Store () {
 var myGroceryStore = new Store()
 myGroceryStore.add('fruit', 'pears', 'peaches')
 console.log(myGroceryStore.aisle) // ​​​​​{ fruit: [ 'pears', 'peaches' ], vegetable: [] }​​​​​
+
+
+// 使用obj作為函式參數
+var obj1 = { foo: 'bar', x: 42 };
+
+const test = ({foo,x}) => {
+  console.log(foo);
+  console.log(x);
+}
+
+test(obj1) // bar, 42
