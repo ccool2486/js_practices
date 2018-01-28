@@ -24,7 +24,7 @@ const visibleExpenses = getVisibleExpenses(state.expenses, state.filters); // �
 console.log(visibleExpenses);
 
 const jsx = (
-  <Provider store={store}> {/** 使用Redux Provider包住APP，讓整個APP都可以使用 */}
+  <Provider store={store}> {/** 使用Redux Provider包住APP，讓Store裡的資料用props傳入，讓整個APP都可以使用 */}
     <AppRouter />
   </Provider>
 );
