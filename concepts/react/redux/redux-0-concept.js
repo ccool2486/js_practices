@@ -36,7 +36,12 @@
  * - Redux Debbuger很好用
  * - Unit Test會很好寫
  * - Redux中的Component，可以不用依賴props，這樣可以讓通用性變大，Component可以放在更多地方被使用
- 
+ * 
+ * CRUD:
+ * - C (Create) : Components dispatch actions to reducers to modify store
+ * - R (Result) : 把Component，Connect到由Store提供的State
+ * - U (Update) : Components dispatch actions to reducers to modify store
+ * - D (Delete) : Components dispatch actions to reducers to modify store
  * 
  * Store: 一個儲存所有資料/狀態的物件
  * 像是「一個餐廳，有一個老闆坐在一個小房間，裡面有一個電視牆跟儀表板去紀錄所有桌子的用餐狀態/服務生的狀態，」
@@ -55,7 +60,7 @@
  * 
  * React Component:
  * 像是「一個服務生，一個餐桌，一個菜單」
- * - 透過store.getState把資料即時更新在手機上
+ * - 透過redux connect把資料即時更新在手機上
  * 
  * Actions:
  * 像是「服務生跟領班說『我要去服務第二桌的客人』; 一個餐桌跟領班說『我的桌子現在要多坐了一個客人』; 菜單跟領班說說『客人黃軍皓要點椒麻雞』」
