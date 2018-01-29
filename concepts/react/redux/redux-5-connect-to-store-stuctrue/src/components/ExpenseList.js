@@ -20,4 +20,4 @@ const mapStateToProps = state => {
 };
 
 // [重要！] 之所以這樣做，不直接在ExpenseList接上Store的原因是，這樣我們就可以繼續使用props的好處了
-export default connect(mapStateToProps)(ExpenseList)
+export default connect(mapStateToProps)(ExpenseList) // 把store的裡的state放到該component的props中
