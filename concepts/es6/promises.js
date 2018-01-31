@@ -9,12 +9,12 @@ var d = new Promise((resolve, reject) => {
 });
 
 
-// then函式有兩個參數
+// then函式有兩個參數，兩個都是函式
 d.then(function(value){
-  console.log(value); // Hello world; 第一個then()裡的參數是「resolve的話要做的事」
+  console.log(value); // Hello world; 第一個then()裡的參數是「resolve的話要做的事」，value是reolve裡的回傳值
   },
   function(error) {
-    console.log(error)// // 第二個then()裡的參數是「reject話要做的事」
+    console.log(error)// // 第二個then()裡的參數是「reject話要做的事」，error是reject裡的回傳值。這個比較像是catch的另外寫法
   }
 )
 
