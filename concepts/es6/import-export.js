@@ -76,7 +76,7 @@ export { decrypt as dec };              // 暴露一个变量，并重新命名
 export { encrypt as en } from 'crypto'; // 从其他模块引用之后重新命名，再暴露出去
 export * from 'crypto';                 // 从其他模块引用所有的模块，再暴露出去
 
-import * as crypto from 'crypto';    // 从其他模块引用所有输出，并命名为 crypto
+import * as crypto from 'crypto';    // 从其他模块引用所有输出，并命名为 crypto，使用的時候就是用crypto.XXX來運行
 
 
 /**
