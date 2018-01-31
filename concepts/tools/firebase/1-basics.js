@@ -60,6 +60,7 @@ database.ref()
     console.log(error)
   })
 
+
 // 利用訂閱的方式，有資料變更時，就會跑callback
 // 這邊不用promise的原因，是因為promise的狀態只能一次，不能改變，所以我們用callback的方式做
 database.ref().on('value', (snapshot) => { // value是firebase的用法, 第一個callback是onchange的時候要做什麼
@@ -68,3 +69,15 @@ database.ref().on('value', (snapshot) => { // value是firebase的用法, 第一�
 }, (error) => { // 第二個callback是錯誤的時候要做什麼
   console.log('error!', error)
 })
+
+
+// 新增資料： 不要直接塞陣列型態進去，應該要一筆一筆塞
+database.ref('expenses').push({
+  description: 'Rent',
+  note: '',
+  amount: 109500,
+  createdAt: 976123498763
+});
+
+// 刪除資料
+database.ref('notes/-Krll52aVDQ3X6dOtmS7').remove(); // 利用firebase的unique ID方式刪除
