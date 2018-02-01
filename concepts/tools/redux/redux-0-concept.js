@@ -57,6 +57,8 @@
  * 像是「APP裡面的畫面，每個人會看到不同的資料」 （Filter出不同的資料）
  * 
  * Middleware:
+ * 用餐廳比喻很難，反正就是redux store要響應database的資料的時後用的東西。它可以讓Action吃一個function，這個function就可以同時做很多事情
+ * 例如先確定firebase資料有被寫入後，才去寫入redux store
  * 
  * React Component:
  * 像是「一個服務生，一個餐桌，一個菜單」
