@@ -86,7 +86,7 @@ const promise = new Promise((resolve, reject) => {
 
 promise.then((data) => {
   console.log('1', data); // 「先」被執行
-  return 'some data';
+  return 'some data'; // 這裡除了回傳東西，讓接下來的then可以使用，也以自己就是一個promise: https://www.udemy.com/react-2nd-edition/learn/v4/t/lecture/7900266?start=0
 }).then((str) => {
   console.log('does this run?', str); // 「後」被執行，str是前一個then的return值
 }).catch((error) => {
