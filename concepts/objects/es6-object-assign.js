@@ -4,38 +4,70 @@
 // object.assign跟object.create不同，後者有包含了繼承
 
 // 完整地複製物件
-var obj = { a: 1 }
-var copy = Object.assign({}, obj)
-console.log(copy) // { a: 1 }
+var obj = { a: 1 };
+var copy = Object.assign({}, obj);
+console.log(copy); // { a: 1 }
 
 // 合併物件
-var o1 = { a: 1 }
-var o2 = { b: 2 }
-var o3 = { c: 3 }
+var o1 = { a: 1 };
+var o2 = { b: 2 };
+var o3 = { c: 3 };
 
-var obj = Object.assign(o1, o2, o3)
-console.log(obj) // { a: 1, b: 2, c: 3 }
-console.log(o1)  // { a: 1, b: 2, c: 3 }, 目標物件本身也被改變。
+var obj = Object.assign(o1, o2, o3);
+console.log(obj); // { a: 1, b: 2, c: 3 }
+console.log(o1); // { a: 1, b: 2, c: 3 }, 目標物件本身也被改變。
 
 // 有相同屬性時合併物件: 所有的屬性會被後方相同屬性名稱的值覆寫。
-var o1 = { a: 1, b: 1, c: 1 }
-var o2 = { b: 2, c: 2 }
-var o3 = { c: 3 }
+var o1 = { a: 1, b: 1, c: 1 };
+var o2 = { b: 2, c: 2 };
+var o3 = { c: 3 };
 
-var obj = Object.assign({}, o1, o2, o3)
-console.log(obj) // { a: 1, b: 2, c: 3 }，屬性c為o3.c的值，最後一個出現的屬性c。
+var obj = Object.assign({}, o1, o2, o3);
+console.log(obj); // { a: 1, b: 2, c: 3 }，屬性c為o3.c的值，最後一個出現的屬性c。
 
 // object.assign是shallow clone
 const wes = {
-  name: 'Wes',
+  name: "Wes",
   age: 100,
   social: {
-    twitter: '@wesbos',
-    facebook: 'wesbos.developer'
+    twitter: "@wesbos",
+    facebook: "wesbos.developer"
   }
+};
+console.log(wes);
+const dev = Object.assign({}, wes);
+console.log(dev);
+dev.social.twitter = "@wesely";
+wes.social.twitter; // ＠wesley ，由於object.assign的機制，他只有第一層被複製了，所以倒只了這個結果
+
+
+// 透過assign的複製特性，去更新redux的state http://chentsulin.github.io/redux/docs/basics/Reducers.html
+const state = { // 初始狀態
+  visibilityFilter: "SHOW_ALL",
+  todos: [
+    {
+      text: "1. Consider using Redux",
+      completed: true
+    },
+    {
+      text: "2. Keep all state in a single tree",
+      completed: false
+    },
+    {
+      text: "3. Keep all state in a single tree",
+      completed: false
+    }
+  ]
 }
-console.log(wes)
-const dev = Object.assign({}, wes)
-console.log(dev)
-dev.social.twitter = '@wesely'
-wes.social.twitter // ＠wesley ，由於object.assign的機制，他只有第一層被複製了，所以倒只了這個結果
+
+const action = {  // 假設我們要更新一個todo
+  index: 1
+}
+return Object.assign({}, state, {
+  todos: state.todos.map((todo, index) => {
+    if (index === action.index) { // 如果index是合法的，就回傳一個被複製過的該index的obj
+      return Object.assign({}, todo, { completed: !todo.completed })
+    }
+    return todo
+  })
+}); //  會將index===1的物件的completed狀態切換
