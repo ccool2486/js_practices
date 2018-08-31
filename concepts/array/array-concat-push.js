@@ -21,7 +21,7 @@
 
   console.log(res); // 6
   console.log(testArr); // [1, 2, 3, 4, 5, 6]
-})();
+})(); 
 
 // MERGES ARRAYS
 // Array.concat() 返回一个新 array，原 array 保持不变。
