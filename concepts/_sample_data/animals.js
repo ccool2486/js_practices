@@ -8,7 +8,7 @@ var animals = [
 
 // 可以練習遞迴
 let categories = [
-  {id: 'animals_', parent: null},
+  {id: 'animals', parent: null},
   {id: 'mammals', parent: 'animals'},
   {id: 'cats', parent: 'mammals'},
   {id: 'dogs', parent: 'mammals'},
