@@ -23,28 +23,21 @@
 // Array.splice() 拼接方法
 // 语法: array.splice(start, deleteCount[, item1[, item2[, ...]]])
 var array = [1, 2, 3, 4, 5];
-console.log(array.splice(2));
-// 返回 [3, 4, 5], 将移除的元素放在新数组中返回
+console.log(array.splice(2)); // 返回 [3, 4, 5], 将移除的元素放在新数组中返回
 
-console.log(array);
-// 返回 [1, 2], 原有数组已经被改变
+console.log(array); // 返回 [1, 2], 原有数组已经被改变
 
 var array2 = [6, 7, 8, 9, 0];
-console.log(array2.splice(2, 1)); 
-// [8]
+console.log(array2.splice(2, 1)); // [8]
 
-console.log(array2.splice(2, 0));
-//[] , 没有元素被移除
+console.log(array2.splice(2, 0)); //[] , 没有元素被移除
 
-console.log(array2);
-// [6,7,9,0]
+console.log(array2); // [6,7,9,0]
 
 var array3 = [11, 12, 13, 14, 15];
-console.log(array3.splice(2, 1, "Hello", "World")); 
-// [13] splice return回來的「不含」插入的元素！而是「被移除的」元素
+console.log(array3.splice(2, 1, "Hello", "World")); // [13] splice return回來的「不含」插入的元素！而是「被移除的」元素
 
-console.log(array3);
-// [11, 12, "Hello", "World", 14, 15]
+console.log(array3); // [11, 12, "Hello", "World", 14, 15]
 
 //            -6  -5 -4 -3 -2 -1 -- 倒序 index
 //             |   |  |  |  |  |
