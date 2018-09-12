@@ -1,6 +1,6 @@
 /**
 * Selection Sort:  https://blog.techbridge.cc/2017/08/19/sotring-algorithm/ 
-* 動畫解釋： https://visualgo.net/en/sorting
+* [看這個比較快] 動畫解釋： https://visualgo.net/en/sorting
 
 * 概念是一直重複去找到最小值，移到最左邊。
 
@@ -12,23 +12,23 @@
 const arr = [51, 11, 7, 9, 83, 72, 6];
 
 const selectionSort = (arr) => {
-    const length = arr.length;
+    const length = arr.length; //要跑幾輪
 
     // 有幾個元素，就要找幾輪的最小值
     // 這邊的 i 代表 i 以前的元素都排序好了
     for (let i = 0; i < length; i++) { 
-        i //?
-        // 先預設第一個是最小的
-        let min = arr[i]; // 從最左邊的數值開始
+        // 左邊數字...
+        let min = arr[i]; // 從最左邊的數值開始 
         let minIndex = i; // 定義最左邊的數值的index
 
-        // 從還沒排好的元素開始找最小值
+        // 從還沒排好的元素開始找最小值<
         for (let j = i; j < length; j++) { 
-            if (arr[j] < min) { //? 如果最
+            if (arr[j] < min) { //? 如果遇到一個比較小的值，就更新min跟minIndex
                 min = arr[j];
                 minIndex = j;
             }
         }
+        // 跑完上面這個迴圈後，把min排到最左邊
         // ES6 的用法，交換兩個數值
         [arr[minIndex], arr[i]] = [arr[i], arr[minIndex]];
     }
