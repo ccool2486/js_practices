@@ -1,7 +1,8 @@
 const fizzBuzz = (number) => {
+    // 回傳用，把FizzBuzz的結果放在裡面
     let fizzBuzzedNumArray = [];
 
-    for (let i = 0; i <= number; i++) {
+    for (let i = 1; i <= number; i++) { // [注意] 要從1開始，spec問題
         if (i % 15 === 0) {
             fizzBuzzedNumArray.push("FizzBuzz")
         }
@@ -16,3 +17,4 @@ const fizzBuzz = (number) => {
 }
 
 fizzBuzz(20) //?
+fizzBuzz(6) //?
