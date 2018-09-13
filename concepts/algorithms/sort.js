@@ -2,7 +2,7 @@
 * Selection Sort:  https://blog.techbridge.cc/2017/08/19/sotring-algorithm/ 
 * [看這個比較快] 動畫解釋： https://visualgo.net/en/sorting
 
-* 概念是一直重複去找到最小值，移到最左邊。
+* 概念是一直重複去找到最小值，移到最左邊 。
 
 * 當你第一輪跑完之後，你就找到整個陣列的最小值了。
 * 然後你把尋找範圍從 0 ~ n-1 變成 1 ~ n-1，重複做一樣的事情就可以了。
