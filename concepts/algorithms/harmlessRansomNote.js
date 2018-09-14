@@ -1,6 +1,9 @@
 /**
  * 課程位置：https://www.udemy.com/learning-algorithms-in-javascript-from-scratch/learn/v4/t/lecture/7707382?start=0
  * 這是一個Linear Runtime的演算法 O(n)
+ * 概念：
+ * 1. 透過一個hash map作一個資料的預先處理
+ * 2. 比對本身不是比對原始資料，而是透過該hash map進行分析
 */
 function harmlessRansomNote(noteText, magazineText) {
     // 把NoteText拆成陣列
@@ -13,7 +16,7 @@ function harmlessRansomNote(noteText, magazineText) {
     magazineArr.forEach(word => {
         // 如果這個字不在obj中，就創一個
         if (!magazineObj[word]) magazineObj[word] = 0;
-        // 如果這個字有在obj中，就把他加1
+        // 加1
         magazineObj[word]++;
     });
 
