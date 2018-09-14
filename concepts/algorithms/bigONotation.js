@@ -6,6 +6,6 @@
 
 // Linear Runtime: O(n)
 
-//Explonential Runtime: O(n^2)
+// Explonential Runtime: O(n^2)
 
-//Logarithmic Runtime: 
+// Logarithmic Runtime: O(log n)
