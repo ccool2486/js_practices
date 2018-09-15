@@ -4,6 +4,7 @@
  * 概念：
  * 1. 透過一個陣列把資料作預先處理
  * 2. 透過陣列合併成字串，來比較兩個陣列是否相同
+ * 3. 比較陣列是否相同： 利用indexOf的foreach達成
  */
 
 function isPalindrome(string) {
@@ -27,3 +28,9 @@ function isPalindrome(string) {
 }
 
 isPalindrome("Madam, I'm Adam"); //?
+
+/**
+ * 概念複習：
+ * 1. foreach: array-foreach.js
+ * 2. callback: callback.js
+ */
