@@ -3,7 +3,7 @@
  * 概念：
  * 1. Functional Programming: 把功能拆成小Function，這樣就可以共用
  * 2. 透過一個hash map作一個資料的預先處理
- * 3. 學習思考不同的cases，例如Modes那邊就有三個cases
+ * 3. 學習思考不同的cases，例如Modes那邊就有三個
  */
 function meanMedianMode(array) {
     return {
@@ -53,7 +53,7 @@ function getMode(array) {
     });
 
 
-    // create array of mode/s 
+    // create array of modes 
     var maxFrequency = 0; // 一個暫存變數，紀錄目前的最大值
     var modes = []; // 回傳的陣列
     for (var num in modeObj) {
