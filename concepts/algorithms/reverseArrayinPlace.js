@@ -16,6 +16,7 @@ function reverseArrayInPlace(arr) {
       var tempVar = arr[i]; //這個變數需要的原因是，下一行就會把arr[i]換掉了，先記起來
       arr[i] = arr[arr.length - 1 - i]; 
       arr[arr.length - 1 - i] = tempVar;  //這裡會用到tempVar
+
     }
     
     return arr;
