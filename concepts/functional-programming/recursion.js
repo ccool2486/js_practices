@@ -1,5 +1,7 @@
 // 遞迴是重要程式設計技巧，其中，函式會呼叫自己。
 // [注意！] 遞迴需要設定一個「停止的條件」，不然就會無限迴圈了
+// 很不錯的YT影片： https://www.youtube.com/watch?v=Mv9NEXX1VHc&t=17s
+
 
 // 範例： 一個利用遞迴概念來做的倒數函式
 let countDownFrom = (num) => {
