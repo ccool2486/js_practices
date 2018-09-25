@@ -43,6 +43,7 @@ addAndLog(['A', 'B', 'C', 'D', 'E']);  // 25 pairs logged out
 
 
 // Logarithmic runtime - Big O Notation: O (log n)
+// Binary Search
 // 這個有效率，因為每個runtime都會把一半切掉
 function binarySearch(array, key) {
     var low = 0;
