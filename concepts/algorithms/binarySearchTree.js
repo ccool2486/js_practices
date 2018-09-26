@@ -57,13 +57,14 @@ BST.prototype.depthFirstTraversal = function (iteratorFunc, order) { // iterator
     if (order === 'post-order') iteratorFunc(this.value); // [Base Case]
 };
 
+// Breadth First Traversal
 BST.prototype.breadthFirstTraversal = function (iteratorFunc) {
-    var queue = [this];
+    var queue = [this]; // 從最上頭的BST開始
     while (queue.length) {
-        var treeNode = queue.shift();
-        iteratorFunc(treeNode);
-        if (treeNode.left) queue.push(treeNode.left);
-        if (treeNode.right) queue.push(treeNode.right);
+        var treeNode = queue.shift(); // 把Que中第一個拿出來
+        iteratorFunc(treeNode); // 用傳入函式處理Que中第一個值
+        if (treeNode.left) queue.push(treeNode.left); // Que中第一個值的左邊值塞入que
+        if (treeNode.right) queue.push(treeNode.right); // Que中第一個值的右邊值塞入que
     }
 };
 
@@ -71,11 +72,13 @@ function log(value) {
     console.log(value);
 };
 
+// 找最小值： 往左邊一直找就會找到了
 BST.prototype.getMinVal = function () {
     if (this.left) return this.left.getMinVal();
     else return this.value;
 };
 
+// 找最大值： 往右邊一直找就會找到了
 BST.prototype.getMaxVal = function () {
     if (this.right) return this.right.getMaxVal();
     else return this.value;
