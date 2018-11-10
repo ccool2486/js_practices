@@ -1,6 +1,6 @@
 var animals = [
   {name : 'Fluffykins', species : 'rabbit'},
-  {name : 'Caro', species : 'dog'},
+  {name : 'Caro', species : 'dog1'},
   {name : 'Hamilton', species : 'fish'},
   {name : 'Harold', species : 'cat'},
   {name : 'Jimmy', species : 'fish'}
